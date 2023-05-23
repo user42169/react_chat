@@ -1,0 +1,164 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$whiteContainerBackgroundGradient: linear-gradient(90deg, #d5c8f3, #fcf0ff, #f5cef2); //
+$whiteChatNavbarBackgroundGradient: linear-gradient(90deg, #8da4f1, #ddc5e3, #d08ae2);
+$whiteContainerBackgroundColor: #ddddf7;
+$whiteTextColor: white;
+
+.chat-mobile-white {
+
+    background: $whiteContainerBackgroundGradient;
+    padding: none;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+
+    @include tablet {
+        width: 100%;
+    }
+
+    @include mobile {
+        width: 100%;
+        height: 100%;
+    }
+
+    @keyframes gradient-animation {
+
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .container {
+        border-radius: 10px;
+        display: flex;
+        overflow: auto;
+        height: 80vh;
+
+        @include tablet {
+            height: auto;
+            width: auto;
+        }
+
+        @include mobile {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .chat {
+            flex: 1;
+
+            @include tablet {
+                width: 95vw;
+            }
+
+            @include mobile {
+                height: auto;
+                width: 100%;
+            }
+
+            .chatInfo {
+                height: 4vh;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                color: $whiteTextColor;
+                background: $whiteChatNavbarBackgroundGradient;
+                background-size: 400% 400%;
+                animation: gradient-animation 2s ease infinite;
+
+                @include tablet {
+                    height: 4vh;
+                }
+
+                @include mobile {
+                    height: 3vh;
+                }
+
+                @keyframes gradient-animation {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+
+                    50% {
+                        background-position: 100% 50%;
+                    }
+
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
+
+                img {
+                    height: 24px;
+                    cursor: pointer;
+
+                    @include tablet {
+                        height: 20px;
+                    }
+
+                    @include mobile {
+                        height: 14px;
+                    }
+                }
+            }
+
+            .chat-images {
+                display: flex;
+                gap: 10px;
+                width: 100px;
+
+                @include tablet {
+                    height: 24px;
+                    width: 50px;
+                }
+
+                @include mobile {
+                    height: 14px;
+                    width: 50px;
+                }
+
+                img {
+                    height: 24px;
+                    cursor: pointer;
+
+                    @include tablet {
+                        height: 24px;
+                    }
+
+                    @include mobile {
+                        height: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

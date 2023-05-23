@@ -1,0 +1,3 @@
+sudo docker buildx build . -t dockerized-react
+sudo docker run -p 3001:3000 -d dockerized-react
+sudo docker stop 

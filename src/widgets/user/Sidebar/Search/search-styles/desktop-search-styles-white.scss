@@ -1,0 +1,49 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$darkColor: #2f2d52;
+
+.search-desktop-white {
+    .searchForm {
+        padding: 10px;
+
+        input {
+            padding: 10px;
+            background-color: #2d3436;
+            border: none;
+            border-radius: 50px;
+            margin: 10px;
+            width: 80%;
+
+            color: white;
+            outline: none;
+
+            @include tablet {
+                width: 50%;
+            }
+
+            @include mobile {
+                width: 20%;
+            }
+
+            &::placeholder {
+                color: lightgray;
+            }
+        }
+    }
+}

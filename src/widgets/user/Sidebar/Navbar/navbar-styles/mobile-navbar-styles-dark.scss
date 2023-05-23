@@ -1,0 +1,156 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$darkNavbarBackgroundGradient: linear-gradient(90deg, #5d5b8d, #8a5382, #8da4f1); //
+
+$darkContainerBackgroundColor: #ddddf7; //
+$darkButtonBackgroundColor: #5d5b8d; //
+
+.navbar-mobile-dark {
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    background: $darkNavbarBackgroundGradient;
+    padding: 10px;
+    justify-content: space-between;
+    color: $darkContainerBackgroundColor;
+    border: none;
+    background-size: 400% 400%;
+    animation: gradient-animation 2s ease infinite;
+    min-width: 80vw;
+
+    @include tablet {
+        height: 4vh;
+    }
+
+    @include mobile {
+        height: 3vh;
+    }
+
+    @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .horse {
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        width: auto;
+
+    }
+
+    .logo {
+        font-weight: bold;
+        padding: 10px;
+        height: 4vh;
+        align-items: center;
+        justify-content: space-between;
+
+        @include tablet {
+            height: 4vh;
+        }
+
+        @include mobile {
+            height: 3vh;
+            
+        }
+
+        img {
+            height: 24px;
+            cursor: pointer;
+
+            @include tablet {
+                height: 20px;
+            }
+
+            @include mobile {
+                height: 14px;
+            }
+        }
+
+    }
+
+    .user-images {
+        padding: auto;
+        display: flex;
+        gap: 10px;
+        margin: 1vh;
+        padding: 5px;
+        width: 100px;
+
+        @include tablet {
+            height: 24px;
+            width: 50px;
+        }
+
+        @include mobile {
+            
+            height: 14px;
+            width: 50px;
+        }
+
+        img {
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+
+            @include tablet {
+                height: 24px;
+            }
+
+            @include mobile {
+                height: 14px;
+            }
+
+        }
+
+        .exit-btn {
+            border-radius: 0%;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            gap: 10px;
+
+            @include tablet {
+                position: absolute;
+                bottom: 10px;
+            }
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+    }
+
+    .menu {
+        color: none;
+        background-color: none;
+    }
+}

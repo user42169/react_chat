@@ -1,0 +1,71 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$whiteMessagesBackgroundColor: white; //
+$whitePlaceHolder: lightgray; //
+
+$whiteButtonBackgroundColor: #ddddf7; //
+$whiteButtonHoverBackgroundColor: white; //
+$whiteButtonHoverTextColor: black; //
+$whiteButtonTextColor: white; //
+
+$whiteScrollbarColor: #daace6 white; //
+
+.messages-mobile-white {
+
+    /* scroll bar */
+    scrollbar-width: thin;
+    scrollbar-color: $whiteScrollbarColor;
+    scrollbar-gutter: stable;
+
+    transition: scrollbar-color 0.3s ease-out;
+
+    background-color: $whiteMessagesBackgroundColor;
+    padding: 10px;
+    height: 55vh;
+    overflow: auto;
+    min-width: 80vw;
+
+    @include tablet {
+        height: 70vh;
+    }
+
+    @include mobile {
+        height: 80%;
+    }
+
+    .delete-chat {
+        height: 10px;
+        width: 10px;
+        cursor: pointer;
+
+        @include tablet {
+            height: 10px;
+            width: 10px;
+        }
+
+        @include mobile {
+            height: 10px;
+            width: 10px;
+        }
+    }
+
+    h3 {
+        color: $whitePlaceHolder;
+    }
+}

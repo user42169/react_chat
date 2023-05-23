@@ -1,0 +1,183 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+$whiteColor: white;
+$whiteBackgroundColor: #ddddf7;
+$whiteTextColor: #000;
+
+$whiteContainerBackgroundGradient: linear-gradient(90deg, #d5c8f3, #fcf0ff, #f5cef2); //
+$whiteButtonColor: lightgray;
+$whiteButtonBackgroundColor: #d07eff;
+$whiteDigButtonBackgroundColor: #ffb1fb;
+$whiteButtonHoverColor: #ffffff;
+$whiteOutputColor: #d1ffef;
+
+.calculator-white {
+  background: $whiteContainerBackgroundGradient;
+  height: 98vh;
+  width: 100vw;
+  overflow: hidden;
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+
+  @include tablet {
+    height: 95vh;
+    width: 100;
+  }
+
+  @include mobile {
+    width: 99vw;
+  }
+
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .container {
+    font-size: 1vh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+
+    h1 {
+      color: $whiteTextColor;
+      margin-top: 20%;
+      font-size: 3vh;
+
+      @include tablet {
+        font-size: 2vh;
+      }
+
+      @include mobile {
+        font-size: 2vh;
+      }
+    }
+
+    .calc-grid {
+      margin: 20px auto;
+      height: 90vh;
+      width: 30vw;
+
+      @include tablet {
+        height: 100%;
+        width: 60%;
+      }
+
+      @include mobile {
+        height: 100%;
+        width: 100%;
+      }
+
+      .horse {
+        height: 10%;
+        width: 10%;
+      }
+
+      .ops {
+        display: flex;
+
+        button {
+          border: 0.1px solid $whiteButtonColor;
+          display: flex;
+
+          justify-content: center;
+          align-items: center;
+          font-size: 3vh;
+          background-color: $whiteButtonBackgroundColor;
+          width: 100%;
+          height: 5vh;
+          transition: all 0.4s ease-in-out;
+          cursor: pointer;
+
+        }
+
+        img {
+          padding: 3px;
+          height: 4vh;
+          width: 2vw;
+
+          @include tablet {
+            height: 4vh;
+            width: 3vw;
+          }
+
+          @include mobile {
+            height: 4vh;
+            width: 3vw;
+          }
+        }
+
+        button:hover {
+          background-color: $whiteButtonHoverColor;
+        }
+      }
+
+      .dig {
+        height: 5vh;
+        width: 100%;
+      }
+
+      .dig button {
+        flex: 1 1 33.333%;
+        font-size: 4vh;
+        min-width: 33.333333%;
+
+        background-color: $whiteDigButtonBackgroundColor;
+        height: 10vh;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        border: 0.5px solid $whiteButtonColor;
+
+      }
+
+      .dig .equal_button {
+        background: #d07eff;
+      }
+
+      .dig button:hover {
+        background-color: $whiteButtonHoverColor;
+      }
+    }
+
+    .output {
+      height: 20vh;
+      box-shadow: inset 0px 0px 20px $whiteOutputColor;
+      text-align: right;
+      font-size: 400%;
+      display: flex;
+      opacity: 50%;
+      background-color: $whiteButtonHoverColor;
+      border: 1px solid $whiteButtonColor;
+      flex-direction: column;
+
+      .preRes {
+        opacity: 20%;
+      }
+    }
+  }
+}

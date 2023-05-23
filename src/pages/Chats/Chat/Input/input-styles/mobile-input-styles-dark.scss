@@ -1,0 +1,99 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$darkSentButtonBackgroundGradient: linear-gradient(90deg, #5d5b8d, #8a5382, #8da4f1);
+$darkButtonHoverBackgroundColor: white;
+$darkButtonHoverTextColor: black;
+
+$darkInputColor: white;
+$darkInputBackgroundColor: #202327;
+$darkInputPlaceHolderColor: lightgray;
+
+.input-mobile-dark {
+    height: 50px;
+    background-color: $darkInputBackgroundColor;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tablet {
+        height: 3vh;
+        font-size: 15px;
+    }
+
+    @include mobile {
+        height: 3vh;
+        font-size: 15px;
+    }
+
+    input {
+        border: none;
+        border-radius: 50px;
+        outline: none;
+        color: $darkInputColor;
+        font-size: 18px;
+        padding: 10px;
+        background-color: #2d3436;
+        width: 100%;
+
+        @include tablet {
+            height: 1vh;
+            
+            font-size: 15px;
+        }
+
+        @include mobile {
+            height: 1vh;
+            font-size: 15px;
+        }
+
+        &::placeholder {
+            color: $darkInputPlaceHolderColor;
+        }
+    }
+
+    .send {
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        @include tablet {
+            height: 14px;
+        }
+
+        @include mobile {
+            height: 14px;
+        }
+
+        img {
+            height: 24px;
+            cursor: pointer;
+
+            @include tablet {
+                height: 14px;
+            }
+
+            @include mobile {
+                height: 10px;
+            }
+        }
+
+    }
+}

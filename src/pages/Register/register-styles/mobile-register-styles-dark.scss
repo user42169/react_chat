@@ -1,0 +1,177 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$darkChatNavbarBackgroundGradient: linear-gradient(90deg, #5d5b8d, #8a5382, #8da4f1);
+$darkContainerBackgroundGradient: linear-gradient(90deg, #3c3b5c, #553250, #2d3436); //
+$darkWrapperBackgroundColor: black; //
+
+$darkLogoColor: #553250; //
+
+$darkButtonBackgroundColor: #5d5b8d; //
+$darkButtonHoverBackgroundColor: white; //
+$darkButtonHoverTextColor: black; //
+$darkButtonHoverBorderColor: #a7bcff; //
+
+$darkPColor: #5d5b8d; //
+$darkAColor: white; //
+$darkAHoverColor: black; //
+$darkAHoverBackgroundColor: white; //
+
+$darkInputBorderColor: #a7bcff; //
+$darkInputButtonColor: white; //
+$darkInputBackgroundColor: #202327; //
+$darkInputLabelColor: #8da4f1; //
+$darkInputColor: white;
+
+
+.register-form-container-mobile-dark {
+
+    background: $darkContainerBackgroundGradient;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+
+    @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .formWrapper-dark {
+        background-color: $darkWrapperBackgroundColor;
+        padding: 20px 60px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        .horse {
+            width: 5vw;
+
+            @include tablet {
+                width: 10vw;
+            }
+    
+            @include mobile {
+                width: 15vw;
+            }
+        }
+
+        .logo {
+            color: $darkLogoColor;
+            font-weight: bold;
+            font-size: 20px;
+
+            @include tablet {
+                font-size: 20px;
+            }
+    
+            @include mobile {
+                font-size: 15px;
+            }
+        }
+
+        .title {
+            color: $darkLogoColor;
+            font-size: 14px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            input {
+                padding: 15px;
+                border: none;
+                width: 250px;
+                border-bottom: 1px solid $darkInputBorderColor;
+                background-color: black;
+                color: $darkInputColor;
+
+                &::placeholder {
+                    color: rgb(175, 175, 175);
+                }
+            }
+
+            button {
+                background-color: $darkButtonBackgroundColor;
+                color: $darkInputButtonColor;
+                padding: 10px;
+                font-weight: bold;
+                border: none;
+                cursor: pointer;
+                gap: 10px;
+                margin: 5px;
+
+                @include tablet {
+                    bottom: 10px;
+                }
+            }
+
+            button:hover {
+                background-color: $darkButtonHoverBackgroundColor;
+                color: $darkButtonHoverTextColor;
+                border: 1px solid $darkButtonHoverBorderColor;
+            }
+
+            label {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: $darkInputLabelColor;
+                font-size: 12px;
+                cursor: pointer;
+
+                img {
+                    width: 32px;
+                }
+            }
+        }
+
+        p {
+            color: $darkPColor;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        a {
+            color: $darkAColor;
+            border: 10px;
+            gap: 10%;
+            margin: 5px;
+        }
+
+        a:hover {
+            color: $darkAHoverColor;
+            background-color: $darkAHoverBackgroundColor;
+        }
+    }
+}

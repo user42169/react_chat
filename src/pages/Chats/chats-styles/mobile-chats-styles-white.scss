@@ -1,0 +1,72 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$whiteContainerBackgroundColor: #ddddf7;
+
+.userChats-mobile-white {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: gray;
+    cursor: pointer;
+
+    &:hover {
+        color: gray;
+        background: $whiteContainerBackgroundColor;
+        background-size: 400% 400%;
+        animation: gradient-animation 15s ease infinite;
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .userChatInfo {
+        span {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 14px;
+            color: gray;
+
+            &:hover {
+                color: gray;
+            }
+        }
+    }
+}

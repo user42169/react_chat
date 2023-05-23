@@ -1,0 +1,27 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+
+$darkColor: #2f2d52;
+
+.sidebar-desktop-white {
+    flex: 1;
+    /*background-color: #3e3c61;*/
+    background-color: #202327;
+    position: relative;
+}

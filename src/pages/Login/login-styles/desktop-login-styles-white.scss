@@ -1,0 +1,122 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$darkColor: #2f2d52;
+
+.login-form-container-desktop-white {
+
+    /*background-color: #a7bcff;*/
+    background-color: #2d3436;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .formWrapper {
+        /*background-color: white;*/
+        background-color: #2d3436;
+        padding: 20px 60px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        .logo {
+            color: #7a7abb;
+            font-weight: bold;
+            font-size: 48px;
+        }
+
+        .title {
+            color: #7a7abb;
+            font-size: 14px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            input {
+                padding: 15px;
+                border: none;
+                width: 250px;
+                border-bottom: 1px solid #a7bcff;
+                background-color: #202327;
+                color: white;
+
+                &::placeholder {
+                    color: rgb(175, 175, 175);
+                }
+            }
+
+            button {
+                background-color: #7b96ec;
+                color: white;
+                padding: 10px;
+                font-weight: bold;
+                border: none;
+                cursor: pointer;
+                gap: 10px;
+                margin: 5px;
+
+                @include tablet {
+                    bottom: 10px;
+                }
+            }
+
+            button:hover {
+                background-color: white;
+                color: black;
+            }
+
+            label {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #8da4f1;
+                font-size: 12px;
+                cursor: pointer;
+
+                img {
+                    width: 32px;
+                }
+            }
+        }
+
+        p {
+            color: #5d5b8d;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        a {
+            color: white;
+            border: 10px;
+            gap: 10%;
+            margin: 5px;
+        }
+
+        a:hover {
+            color: black;
+            background-color: white;
+        }
+    }
+}
+

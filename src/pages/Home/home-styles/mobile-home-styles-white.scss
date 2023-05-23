@@ -1,0 +1,79 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$whiteContainerBackgroundGradient: linear-gradient(90deg, #d5c8f3, #fcf0ff, #f5cef2); //
+$whiteContainerBackgroundColor: #ddddf7;
+
+.home-mobile-white {
+
+    background: $whiteContainerBackgroundGradient;
+    padding: none;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+
+    @include tablet {
+        width: 99%;
+        height: 95vh;
+    }
+
+    @include mobile {
+        width: 100%;
+        height: 100%;
+    }
+
+    @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .container {
+        border-radius: 10px;
+        display: flex;
+        overflow: hidden;
+        height: 80vh;
+
+        @include tablet {
+            width: 90%;
+            height: 95%;
+        }
+
+        @include mobile {
+            width: 100%;
+            height: 94vh;
+        }
+
+        img {
+            height: 24px;
+            width: 24px;
+            cursor: pointer;
+        }
+    }
+}

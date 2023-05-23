@@ -1,0 +1,101 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$whiteSentButtonBackgroundGradient: linear-gradient(90deg, #8da4f1, #ddc5e3, #d08ae2);
+$whiteButtonHoverBackgroundColor: white;
+$whiteButtonHoverTextColor: black;
+$whiteButtonTextColor: white;
+
+$whiteInputColor: #8a8984;
+$whiteInputBackgroundColor: white;
+$whiteInputFieldBackgroundColor: #e9e9e9;
+$whiteInputPlaceHolderColor: #8a8984;
+
+.input-mobile-white {
+    height: 50px;
+    background-color: $whiteInputBackgroundColor;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tablet {
+        height: 3vh;
+        font-size: 15px;
+    }
+
+    @include mobile {
+        height: 3vh;
+        font-size: 15px;
+    }
+
+    input {
+        border: none;
+        border-radius: 50px;
+        outline: none;
+        color: $whiteInputColor;
+        font-size: 18px;
+        padding: 10px;
+        background-color: $whiteInputFieldBackgroundColor;
+        width: 100%;
+
+        @include tablet {
+            height: 1vh;
+            
+            font-size: 15px;
+        }
+
+        @include mobile {
+            height: 1vh;
+            font-size: 15px;
+        }
+
+        &::placeholder {
+            color: $whiteInputPlaceHolderColor;
+        }
+    }
+
+    .send {
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        @include tablet {
+            height: 14px;
+        }
+
+        @include mobile {
+            height: 14px;
+        }
+
+        img {
+            height: 24px;
+            cursor: pointer;
+
+            @include tablet {
+                height: 14px;
+            }
+
+            @include mobile {
+                height: 10px;
+            }
+        }
+
+    }
+}

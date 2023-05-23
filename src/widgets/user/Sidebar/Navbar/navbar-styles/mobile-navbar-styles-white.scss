@@ -1,0 +1,158 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$whiteNavbarBackgroundGradient: linear-gradient(90deg, #8da4f1, #ddc5e3, #d08ae2); //
+$whiteLogoutButton: #f5cef2;
+$whiteButtonBackgroundColor: #ddddf7; //
+$whiteButtonHoverBackgroundColor: white; //
+$whiteButtonHoverTextColor: black; //
+$whiteNavbarTextColor: white; //
+
+.navbar-mobile-white {
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    background: $whiteNavbarBackgroundGradient;
+    padding: 10px;
+    justify-content: space-between;
+    color: $whiteNavbarTextColor;
+    border: none;
+    background-size: 400% 400%;
+    animation: gradient-animation 2s ease infinite;
+    min-width: 80vw;
+
+    @include tablet {
+        height: 4vh;
+    }
+
+    @include mobile {
+        height: 3vh;
+    }
+
+    @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .horse {
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        width: auto;
+
+    }
+
+    .logo {
+        font-weight: bold;
+        padding: 10px;
+        height: 4vh;
+        align-items: center;
+        justify-content: space-between;
+
+        @include tablet {
+            height: 4vh;
+        }
+
+        @include mobile {
+            height: 3vh;
+            
+        }
+
+        img {
+            height: 24px;
+            cursor: pointer;
+
+            @include tablet {
+                height: 20px;
+            }
+
+            @include mobile {
+                height: 14px;
+            }
+        }
+
+    }
+
+    .user-images {
+        padding: auto;
+        display: flex;
+        gap: 10px;
+        margin: 1vh;
+        padding: 5px;
+        width: 100px;
+        
+        @include tablet {
+            height: 24px;
+            width: 50px;
+        }
+
+        @include mobile {
+            
+            height: 14px;
+            width: 50px;
+        }
+
+        img {
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            
+            @include tablet {
+                height: 24px;
+            }
+
+            @include mobile {
+                height: 14px;
+            }
+        }
+
+        .exit-btn {
+            border-radius: 0%;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            gap: 10px;
+
+            @include tablet {
+                position: absolute;
+                bottom: 10px;
+            }
+        }
+
+        button:hover {
+            background-color: $whiteButtonHoverBackgroundColor;
+            color: $whiteButtonHoverTextColor;
+        }
+
+        .menu {
+            background-color: none;
+            background: none;
+        }
+
+    }
+}

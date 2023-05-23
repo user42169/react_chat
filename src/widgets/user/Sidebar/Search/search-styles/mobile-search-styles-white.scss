@@ -1,0 +1,51 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$whiteInputTextColor: #8a8984; //
+$whiteInputFieldBackgroundColor: #e9e9e9; //
+$whiteInputPlaceHolderColor: #8a8984; //
+
+.search-mobile-white {
+    .searchForm {
+        padding: 10px;
+
+        input {
+            padding: 10px;
+            background-color: $whiteInputFieldBackgroundColor;
+            border: none;
+            border-radius: 50px;
+            margin: 10px;
+            width: 59vw;
+
+            color: $whiteInputTextColor;
+            outline: none;
+
+            @include tablet {
+                width: 75vw;
+            }
+
+            @include mobile {
+                width: 75vw;
+            }
+
+            &::placeholder {
+                color: $whiteInputPlaceHolderColor;
+            }
+        }
+    }
+}

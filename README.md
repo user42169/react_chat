@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This is the second version of my messanger which is very clean and most stable. In order to start you only need to register your forebase application and put ur credentials in firebase.js file, then build your docker image and start your docker container
+
 ## Available Scripts
 
 In the project directory, you can run:
